@@ -1,13 +1,13 @@
 package AbstructFactory.factory;
 
+import AbstructFactory.listfactory.ListFactory;
+
 public abstract class Factory {
-    public static Factory getFactory(String classname){
+    public static Factory getFactory(){
         Factory factory = null;
         try {
-            factory = (Factory)Class.forName(classname).newInstance();
-        } catch(ClassNotFoundException e){
-            System.err.println("クラス " + classname + " が見つかりません。");
-        } catch(Exception e){
+            factory = new ListFactory();
+        }  catch(Exception e){
             e.printStackTrace();;
         }
 
